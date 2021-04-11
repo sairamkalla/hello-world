@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        
+        stage('Clone') {
+            steps {
+                sh 'rm -rf hello-world && git clone https://github.com/sairamkalla/hello-world.git'
+               
+            }
+        }
+        stage('List') {
+            steps {
+                sh 'ls -lrt hello-world && pwd'
+           }   
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'cd hello-world && mvn package'
+           }   
+        }
+        
+        stage('Deploy') {
+            steps {
+                sh 'cd hello-world && mvn deploy'
+           }   
+        }
+        
+   }
+}
