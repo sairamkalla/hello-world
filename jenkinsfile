@@ -19,13 +19,6 @@ pipeline {
             steps {
                 sh 'cd hello-world && mvn package'
            }   
-        }
-        
-        stage('Deploy') {
-            steps {
-                sh 'cd hello-world && mvn deploy'
-           }   
-        }
-        
+        }      
    }
 }
