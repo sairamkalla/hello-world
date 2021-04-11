@@ -1,5 +1,9 @@
 pipeline {
-    agent JRT
+    agent {
+        node {
+            label 'JRT'
+        }
+    }
 
     stages {
         
